@@ -1,0 +1,5 @@
+droplet_name: ansible-test
+region: tor1
+size: s-1vcpu-512mb-10gb
+image: ubuntu-24-04-x64
+ssh_key_id: "12:cf:c8:b4:38:f4:01:02:b6:6a:e5:16:e9:2f:c5:99"

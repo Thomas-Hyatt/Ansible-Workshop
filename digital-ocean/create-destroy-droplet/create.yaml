@@ -1,0 +1,26 @@
+- name: Create DigitalOcean Droplet
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - configs.yaml
+    - credentials.yaml
+
+  tasks:
+    - name: Create Droplet
+      digitalocean.cloud.droplet:
+        token: "{{ do_token }}"
+        state: present
+        name: "{{ droplet_name }}"
+        region: "{{ region }}"
+        size: "{{ size }}"
+        image: "{{ image }}"
+        ssh_keys:
+          - "{{ ssh_key_id }}"
+        unique_name: true
+      register: create_droplet_result
+
+    - name: Display Droplet information
+      ansible.builtin.debug:
+        var: create_droplet_result.droplet
