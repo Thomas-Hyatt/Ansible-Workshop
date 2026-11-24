@@ -4,7 +4,8 @@
   gather_facts: false
 
   vars_files:
-    - configs.yml
+    - configs.yaml
+    - credentials.yaml
 
   tasks:
     - name: Delete Droplet
